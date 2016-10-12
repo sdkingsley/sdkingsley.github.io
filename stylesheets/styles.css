@@ -322,3 +322,37 @@ footer {
     color:#444;
   }
 }
+
+/*RESOURCE: https://www.sitepoint.com/using-modern-css-to-build-a-responsive-image-grid/*/
+
+#photogrid div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* or space-around */
+}
+
+a {
+  font-size: 16px;
+  margin-bottom: 8px;
+  width: calc(50% - 4px);
+  margin-right: 0px;
+}
+
+#photogrid a{
+  display: inline-block;
+}
+
+@media screen and (min-width: 50em) {
+  a {
+    width: calc(25% - 6px);
+  }
+}
+
+#photogrid a:nth-of-type(2n) {
+    margin-right: 8px;
+}
+
+#photogrid a:nth-of-type(4n) {
+    margin-right: 0;
+}
+}
