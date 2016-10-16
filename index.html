@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Sarah D. Kingsley by sdkingsley</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css.map">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
     <meta name="viewport" content="width=device-width">
+    <!--<script type="text/javascript" src="javascripts/lightbox.js"></script>-->
+    <link rel="stylesheet" href="lightbox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="gallery.css" type="text/css" media="screen" />
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -20,27 +22,25 @@
       <header>
         <h1>Sarah D. Kingsley</h1>
         <p>Senior at the University of Rochester studying Human Computer Interaction and Studio Arts.</p>
-
-        <nav class="navbar navbar-default" id="myScrollspy">
-          <div class="container-fluid">
-            <ul class="nav navbar-nav">
+        <nav id="myScrollspy">
+            <ul>
               <li><a href="#softwareengineering">SOFTWARE ENGINEERING</a></li>
               <li><a href="#userinterfacedesign">USER INTERFACE DESIGN</a></li>
               <li><a href="#graphicdesign">GRAPHIC DESIGN</a></li>
               <li><a href="#finearts">FINE ARTS</a></li>
             </ul>
-          </div>
         </nav>
       </header>
 
     <section>
+    <div id="segments">
     <div id="softwareengineering">
     <h3><a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Software Engineering</h3>
 
     <p>At the University of Rochester I am fulfilling a bachelor of arts degree in human computer interaction. Through this course of study I have learned many skills, my main proficiencies being in Java, web development, mobile development and user experience research.</p>
 
     <p class="view"><a href="https://github.com/sdkingsley">View My GitHub Profile</a></p>
-    </div>
+    </div><!--softwareengineering-->
 
 
     <div id="userinterfacedesign">
@@ -48,82 +48,93 @@
 
     <p>With a background in the fine arts, human computer interaction and an accompanying business minor, I believe I have a unique ability to be able to combine those skills in the field of user interface design. Creating visually has always been my passion, and I observe interfaces as a medium where I can work actively with with the process of thought.</p>
 
-    </div>
+    </div><!--userinterface-->
 
     <div id="graphicdesign">
     <h3><a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Graphic Design and Marketing</h3>
 
     <p>I am proficient in the Adobe Suite, with an equal preference between Illustrator and Photoshop. With these tools I have had opportunities to create print and social media campaigns through a full time internship under the head of marketing at IP.com. I have also had the opportunity to be a leader in communications for three different student organizations.</p>
-    </div>
 
-<!--   <div class="container">
-   <ul class="row">
-       <li><img src="images/graphicdesign/coverphoto3.jpg"/></li>
-       <li><img src="images/graphicdesign/logo.jpg"/></li>
-       <li><img src="images/graphicdesign/PosterCassidy.jpg"/></li>
-       <li><img src="images/graphicdesign/PosterJustin.jpg"/></li>
-       <li><img src="images/graphicdesign/tanzslogo.png"/></li>
-       <li><img src="images/graphicdesign/TANZSPoster.jpg"/></li>
-       <li><img src="images/graphicdesign/medealogo.png"/></li>
-       <li><img src="images/graphicdesign/tshirt.png"/></li>
-       <li><img src="images/graphicdesign/Poster.jpg"/></li>
-       <li><img src="images/graphicdesign/TransParent.jpg"/></li>
-   </ul>
-  </div>
-</div> -->
-    <div id="photogrid">
-      <a href="images/graphicdesign/coverphoto3.jpg">
-        <figure>
-          <img src="images/graphicdesign/coverphoto3.jpg" alt="">
-        </figure>
-      </a>
-      <a href="images/graphicdesign/logo.jpg">
-        <figure>
-          <img src="images/graphicdesign/logo.jpg" alt="">
-        </figure>
-      </a>
-      <a href="images/graphicdesign/PosterCassidy.jpg">
-        <figure>
-          <img src="images/graphicdesign/PosterCassidy.jpg" alt="">
-        </figure>
-      </a>
-      <a href="images/graphicdesign/PosterJustin.jpg">
-        <figure>
-          <img src="images/graphicdesign/PosterJustin.jpg" alt="">
-        </figure>
-      </a>
-      <a href="images/graphicdesign/tanzslogo.png">
-        <figure>
-          <img src="images/graphicdesign/tanzslogo.png" alt="">
-        </figure>
-      </a>
-      <a href="images/graphicdesign/TANZSPoster.jpg">
-        <figure>
-          <img src="images/graphicdesign/TANZSPoster.jpg" alt="">
-        </figure>
-      </a>
-      <a href="images/graphicdesign/medealogo.png">
-        <figure>
-          <img src="images/graphicdesign/medealogo.png" alt="">
-        </figure>
-      </a>
-      <a href="images/graphicdesign/tshirt.png">
-        <figure>
-          <img src="images/graphicdesign/tshirt.png" alt="">
-        </figure>
-      </a>
-      <a href="images/graphicdesign/TransParent.jpg">
-        <figure>
-          <img src="images/graphicdesign/TransParent.jpg" alt="">
-        </figure>
-      </a>
-</div>
+    <div id="lightbox-wrapper">
+        <ul class="gallery">
+            <li>
+                <a href="images/graphicdesign/PosterCassidy.jpg" class="lightbox_trigger"><img src="images/graphicdesign/PosterCassidy.jpg" /></a>               
+            </li>
+            <li>
+                <a href="images/graphicdesign/PosterJustin.jpg" class="lightbox_trigger"><img src="images/graphicdesign/PosterJustin.jpg" /></a>
+            </li>
+            <li>
+                <a href="images/graphicdesign/TANZSPoster.jpg" class="lightbox_trigger"><img src="images/graphicdesign/TANZSPoster.jpg" /></a>
+            </li> 
+        </ul>
+</div> <!-- #/lightbox-wrapper -->
+
+    </div><!--graphic design-->
 
     <div id="finearts">
     <h3><a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fine Arts</h3>
 
     <p>In my art I use mediums of acrylic paint and digital to take a closer look at the role of empathy in reference to the voices within myself and within the networks I operate. In the past this has included looking at the art form of theatre, the complexities of proportion, tensions between technologies and humanity, and advocation for sexual assault awareness. My current work involves painting portraits of women in all the STEM majors that the University of Rochester to purpose both celebrating their passion and understanding the difficulties of being in that position.</p>
-    </div>
-    
+
+    <!-- Lightbox JQuery Code -->
+
+    </div><!--finearts-->
+</div><!--section-->
+
+    <script src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            
+            $('.lightbox_trigger').click(function(e) {
+                
+                //prevent default action (hyperlink)
+                e.preventDefault();
+                
+                //Get clicked link href
+                var image_href = $(this).attr("href");
+                
+                /*  
+                If the lightbox window HTML already exists in document, 
+                change the img src to to match the href of whatever link was clicked
+                
+                If the lightbox window HTML doesn't exists, create it and insert it.
+                (This will only happen the first time around)
+                */
+                
+                if ($('#lightbox').length > 0) { // #lightbox exists
+                    
+                    //place href as img src value
+                    $('#content').html('<img src="' + image_href + '" />');
+                    
+                    //show lightbox window - you could use .show('fast') for a transition
+                    $('#lightbox').show();
+                }
+                
+                else { //#lightbox does not exist - create and insert (runs 1st time only)
+                    
+                    //create HTML markup for lightbox window
+                    var lightbox = 
+                    '<div id="lightbox">' +
+                        '<p>Click to close</p>' +
+                        '<div id="content">' + //insert clicked link's href into img src
+                            '<img src="' + image_href +'" />' +
+                        '</div>' +  
+                    '</div>';
+                        
+                    //insert lightbox HTML into page
+
+                    $('body').append(lightbox);
+                }
+                
+            });
+            
+            //Click anywhere on the page to get rid of lightbox window
+            $('#lightbox').live('click', function() { //must use live, as the lightbox element is inserted into the DOM
+                $('#lightbox').hide();
+            });
+
+        });
+</script>
+    </script>
   </body>
 </html>

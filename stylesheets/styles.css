@@ -323,36 +323,104 @@ footer {
   }
 }
 
-/*RESOURCE: https://www.sitepoint.com/using-modern-css-to-build-a-responsive-image-grid/*/
 
-#photogrid div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* or space-around */
+/*Gallery CSS*/
+
+ul.gallery {
+  list-style: none;
+  font-size: 0px;
+  margin-left: -2.5%; /* should match li left margin */
 }
-
-a {
-  font-size: 16px;
-  margin-bottom: 8px;
-  width: calc(50% - 4px);
-  margin-right: 0px;
-}
-
-#photogrid a{
+ul.gallery li {
   display: inline-block;
+  padding: 10px;
+  margin: 0 0 2.5% 2.5%;
+  background: #fff;
+  border: none;
+  font-size: 16px;
+  font-size: 1rem;
+  vertical-align: top;/*
+  box-shadow: 0 0 5px #ddd;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;*/
 }
-
-@media screen and (min-width: 50em) {
-  a {
-    width: calc(25% - 6px);
+ul.gallery li img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 10px;
+}
+ul.gallery li h3 {
+  margin: 0 0 5px;
+}
+ul.gallery li p {
+  font-size: .9em;
+  line-height: 1.5em;
+  color: #999;
+}
+/* class for 4 columns */
+ul.gallery li {
+  width: 22.5%; /* this value + 2.5 should = 25% */
+}
+ 
+@media (max-width: 480px) {
+  ul.grid-nav li {
+    display: block;
+    margin: 0 0 5px;
+  }
+  ul.grid-nav li a {
+    display: block;
+  }
+  ul.rig {
+    margin-left: 0;
+  }
+  ul.rig li {
+    width: 100% !important; /* over-ride all li styles */
+    margin: 0 0 20px;
   }
 }
 
-#photogrid a:nth-of-type(2n) {
-    margin-right: 8px;
+/*Lightbox*/
+
+#lightbox-wrapper {
+    width:600px; 
+    margin:0 auto; /*centers the div horizontally in all browsers (except IE)*/
+    background:#fff; 
+    text-align:left; /*resets text alignment from body tag */
+    border:none;
+    border-top:none; 
+    padding:0px; }
+    /*Let's add some CSS3 styles, these will degrade gracefully in older browser and IE*/
+/*    border-radius:0 0 5px 5px;
+    -moz-border-radius:0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px; 
+    box-shadow:0 0 5px #ccc;
+    -moz-box-shadow:0 0 5px #ccc;
+    -webkit-box-shadow:0 0 5px #ccc;
+}*/
+
+#lightbox {
+    position:fixed; /* keeps the lightbox window in the current viewport */
+    top:0;
+    left:0; 
+    width:100%; 
+    height:100%; 
+    background:url(../images/overlay.png) repeat; 
+    text-align:center;
 }
 
-#photogrid a:nth-of-type(4n) {
-    margin-right: 0;
+#lightbox p {
+    text-align:right; 
+    color:#fff; 
+    margin-right:20px; 
+    font-size:12px; 
 }
+
+#lightbox img {
+    box-shadow:0 0 25px #111;
+    -webkit-box-shadow:0 0 25px #111;
+    -moz-box-shadow:0 0 25px #111;
+    max-height:600px;
+}
+
 }
