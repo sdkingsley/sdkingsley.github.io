@@ -334,16 +334,13 @@ ul.gallery {
 ul.gallery li {
   display: inline-block;
   padding: 10px;
+  padding-left:0px;
   margin: 0 0 2.5% 2.5%;
   background: #fff;
   border: none;
   font-size: 16px;
   font-size: 1rem;
-  vertical-align: top;/*
-  box-shadow: 0 0 5px #ddd;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;*/
+  vertical-align: top;
 }
 ul.gallery li img {
   max-width: 100%;
