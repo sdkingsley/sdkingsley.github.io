@@ -83,6 +83,10 @@ h2 {
   color:#393939;
 }
 
+h3 {
+  padding-top: 15px;
+}
+
 h3, h4, h5, h6 {
   color:#494949;
 }
@@ -155,6 +159,11 @@ th {
 
 img {
   max-width:100%;
+}
+
+iframe {
+  max-width:100%;
+  margin: 12px;
 }
 
 header {
