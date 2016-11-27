@@ -61,7 +61,8 @@
     <div id="lightbox-wrapper">
         <ul class="gallery">
             <li>
-                <a href="images/finearts/GenevaEmotionWheel.png" class="lightbox_trigger"><img src="images/finearts/BigOrSmallAnger.jpg" /></a>               
+                <a href="images/finearts/BigOrSmallAnger.jpg" class="lightbox_trigger"><img src="images/finearts/BigOrSmallAnger.jpg" /></a>
+                <p class="description">Acrylic on Canvas. 20x16". Big or Small Series.</p>              
             </li>
             <li>
                 <a href="images/finearts/BigOrSmallFantasies.jpg" class="lightbox_trigger"><img src="images/finearts/BigOrSmallFantasies.jpg" /></a>               
@@ -73,13 +74,13 @@
                 <a href="images/finearts/BigOrSmallTempestInATeacup.jpg" class="lightbox_trigger"><img src="images/finearts/BigOrSmallTempestInATeacup.jpg" /></a>               
             </li>
             <li>
-                <a href="images/finearts/GenevaEmotionWheel.png" class="lightbox_trigger"><img src="images/finearts/pink.jpg" /></a>               
+                <a href="images/finearts/pink.jpg" class="lightbox_trigger"><img src="images/finearts/pink.jpg" /></a>               
             </li>
             <li>
-                <a href="images/finearts/GenevaEmotionWheel.png" class="lightbox_trigger"><img src="images/finearts/TheatreEmpathy.jpg" /></a>               
+                <a href="images/finearts/TheatreEmpathy.jpg" class="lightbox_trigger"><img src="images/finearts/TheatreEmpathy.jpg" /></a>               
             </li>
             <li>
-                <a href="images/finearts/GenevaEmotionWheel.png" class="lightbox_trigger"><img src="images/finearts/TechnologyIsEmpathy.jpg" /></a>               
+                <a href="images/finearts/TechnologyIsEmpathy.jpg" class="lightbox_trigger"><img src="images/finearts/TechnologyIsEmpathy.jpg" /></a>               
             </li>
             <li>
                 <a href="images/finearts/Caroline.gif" class="lightbox_trigger"><img src="images/finearts/Caroline.gif" /></a>
@@ -89,7 +90,7 @@
             </li>
 
             <li>
-                <a href="http://issuu.com/skingsl2/docs/tnamagvers2?e=24582288/41204489" class="lightbox_trigger"><img src="images/finearts/affinitymagazine.jpg" /></a>
+                <a href="images/finearts/affinitymagazine.jpg" class="lightbox_trigger"><img src="images/finearts/affinitymagazine.jpg" /></a>
             </li>
             <li>
                 <a href="images/finearts/Isabelle.jpg" class="lightbox_trigger"><img src="images/finearts/Isabelle.jpg" /></a>
@@ -167,12 +168,15 @@
                 
                 //Get clicked link href
                 var image_href = $(this).attr("href");
+
+                //Get clicked link description
+                var image_description = $(this).attr("p");
                 
                 /*  
                 If the lightbox window HTML already exists in document, 
                 change the img src to to match the href of whatever link was clicked
                 
-                If the lightbox window HTML doesn't exists, create it and insert it.
+                If the lightbox window HTML doesn't exist, create it and insert it.
                 (This will only happen the first time around)
                 */
                 
@@ -180,6 +184,9 @@
                     
                     //place href as img src value
                     $('#content').html('<img src="' + image_href + '" />');
+
+                    //place description as img decription value
+                    $('#description').html('<p>'+ image_description + '</p>');
                     
                     //show lightbox window - you could use .show('fast') for a transition
                     $('#lightbox').show();
@@ -193,7 +200,10 @@
                         '<p>Click to close</p>' +
                         '<div id="content">' + //insert clicked link's href into img src
                             '<img src="' + image_href +'" />' +
-                        '</div>' +  
+                        '</div>' + 
+                        '<div id="description">' + //insert clicked link's href into img src
+                            '<p>'+ image_description + '</p>' +
+                        '</div>' + 
                     '</div>';
                         
                     //insert lightbox HTML into page

@@ -7,7 +7,6 @@
     border:1px solid #ccc;
     border-top:none; 
     padding:25px; 
-    /*Let's add some CSS3 styles, these will degrade gracefully in older browser and IE*/
     border-radius:0 0 5px 5px;
     -moz-border-radius:0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px; 
@@ -38,4 +37,11 @@
     -webkit-box-shadow:0 0 25px #111;
     -moz-box-shadow:0 0 25px #111;
     max-width:940px;
+}
+
+#description p {
+    text-align:center; 
+    color:#fff; 
+    margin:20px; 
+    font-size:12px; 
 }
