@@ -7,19 +7,34 @@
 </head>
 
 <body>
-	<h2>Test 1.0</h2>
+	<h2>Test 1.1</h2>
 
 	<style>
 	  .thumb {
-	    width: 300px;
+	    width: 640;
+	    height: 960;
 	    border: none;
 	    margin: 10px 5px 0 0;
+	  }
+
+	  .overlay {
+    	position: absolute;   
+    	left:0;
+    	top: 0;
+    	z-index: 999;
+	  }
+
+	  .container {
+ 		position: relative;   
 	  }
 	</style>
 
 	<!-- <input type="file" id="files" name="files[]" multiple /> -->
-	<input type="file" id="files" accept="image/*" name="files[]"> 
-	<p><output id="list"></output></p>
+
+	<input type="file" id="files" accept="image/*" name="files[]">
+	<div class="container"> 
+		<p><output id="list"></output></p>
+	</div>
 
 	<script>
 	  function handleFileSelect(evt) {
@@ -41,7 +56,7 @@
 	          // Render thumbnail.
 	          var span = document.createElement('span');
 	          span.innerHTML = ['<img class="thumb" src="', e.target.result,
-	                            '" title="', escape(theFile.name), '"/>'].join('');
+	                            '" title="', escape(theFile.name),'/><img src="/img/fucktrump.png" class="overlay"/>'].join('');
 	          document.getElementById('list').insertBefore(span, null);
 	        };
 	      })(f);
