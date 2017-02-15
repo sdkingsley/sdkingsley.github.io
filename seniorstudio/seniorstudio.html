@@ -7,12 +7,12 @@
 </head>
 
 <body>
-	<h2>Test 1.2</h2>
+	<h2>Test 1.3</h2>
 
 	<style>
 	  .thumb {
-	    width: 640;
-	    height: 960;
+	    width: 960;
+	    height: 1280;
 	    border: none;
 	    margin: 10px 5px 0 0;
 	  }
@@ -37,7 +37,8 @@
 	</div>
 
 	<div class="container"> 
-		<img class="thumb" src="/img/selfie.JPG" title="selfie"/><img src="/img/fucktrump.png" class="overlay"/>'
+		<img class="thumb" src="img/selfie.JPG" title="selfie"/><img src="img/fucktrump.png" title=
+	"fucktrump" class="overlay"/>'
 	</div>
 
 	<script>
@@ -60,7 +61,7 @@
 	          // Render thumbnail.
 	          var span = document.createElement('span');
 	          span.innerHTML = ['<img class="thumb" src="', e.target.result,
-	                            '" title="', escape(theFile.name),'/><img src="/img/fucktrump.png" class="overlay"/>'].join('');
+	                            '" title="', escape(theFile.name),'/><img src="img/fucktrump.png" class="overlay"/>'].join('');
 	          document.getElementById('list').insertBefore(span, null);
 	        };
 	      })(f);
