@@ -4,11 +4,18 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-    <title>Sarah D. Kingsley by sdkingsley</title>
+    <title>Studio Art Web App</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-	<h2>Test 2.0</h2>
+	<h2>Test 2.1</h2>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 
 	<style>
 	  .thumb {
@@ -34,7 +41,12 @@
 
 	<!-- <input type="file" id="files" name="files[]" multiple /> -->
 
-	<input type="file" id="files" accept="image/*" name="files[]">
+	
+
+	<label class="btn btn-block btn-primary">
+           Take Picture <input type="file" id="files" accept="image/*" name="files[]" style="display: none;">
+    </label>
+
 	<div class="container"> 
 		<p><output id="list"></output></p>
 	</div>
