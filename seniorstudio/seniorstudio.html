@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 2.6</h2>
+	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 2.7</h2>
 	<p class="text-center" style="font-family: 'Abel', sans-serif; color: #BBBBBB; padding; 32px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae pellentesque sapien. Morbi ullamcorper enim malesuada sapien cursus, quis tristique nunc volutpat. </p>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -72,6 +72,8 @@
 	        return function(e) {
 	          // Render thumbnail.
 	          var span = document.createElement('span');
+	          var img = new Image();
+			  img.setAttribute('crossOrigin', 'anonymous');
 	          var c=document.getElementById("myCanvas");
 				var ctx=c.getContext("2d");
 				var imageObj1 = new Image();
@@ -82,14 +84,13 @@
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
 				      ctx.drawImage(imageObj2, 0, 0, 960, 1280);
-				      var img = new Image();
-					  img.setAttribute('crossOrigin', 'anonymous');
 				      img = c.toDataURL("img/merged.png");
 				      document.write('<img src="' + img + '" width="960" height="1280"/>');
 				      // span.innerHTML = ['<img class="thumb" src="' + img + '" width="960" height="1280"/>'].join('');
 				      // document.getElementById('list').replaceWith(span);
 				   }
 				};         
+	        	span.innerHTML = ['<img class="thumb" src="', img, '" title="', escape(theFile.name),'"/>'].join('');
 	        };
 	      })(f);
 	    
