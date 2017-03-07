@@ -80,6 +80,7 @@
 				var imageObj2 = new Image();
 				imageObj1.src = e.target.result;
 				imageObj1.onload = function() {
+				   imgageObj1.rotate(90);
 				   ctx.drawImage(imageObj1, 0, 0, 960, 1280);
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
