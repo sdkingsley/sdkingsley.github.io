@@ -85,8 +85,9 @@
 				      var img = new Image();
 					  img.setAttribute('crossOrigin', 'anonymous');
 				      img = c.toDataURL("img/merged.png");
-				      span.innerHTML = ['<img class="thumb" src="' + img + '" width="960" height="1280"/>'].join('');
-				      document.getElementById('list').replaceWith(span);
+				      document.write('<img src="' + img + '" width="960" height="1280"/>');
+				      // span.innerHTML = ['<img class="thumb" src="' + img + '" width="960" height="1280"/>'].join('');
+				      // document.getElementById('list').replaceWith(span);
 				   }
 				};         
 	        };
