@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 2.4</h2>
+	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 2.5</h2>
 	<p class="text-center" style="font-family: 'Abel', sans-serif; color: #BBBBBB; padding; 32px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae pellentesque sapien. Morbi ullamcorper enim malesuada sapien cursus, quis tristique nunc volutpat. </p>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -51,6 +51,8 @@
 		<p><output id="list"></output></p>
 	</div>
 
+	<canvas id="myCanvas" width="960" height="1280"></canvas>
+
 	<script>
 	  function handleFileSelect(evt) {
 	    var files = evt.target.files; // FileList object
@@ -65,19 +67,42 @@
 
 	      var reader = new FileReader();
 
-	      //TODO: have it replace photo
-	      //TODO: have it save photo
-
-	      // Closure to capture the file information.
-	      reader.onload = (function(theFile) {
+	    //TODO: have it save photo
+	    reader.onload = (function(theFile) {
 	        return function(e) {
 	          // Render thumbnail.
 	          var span = document.createElement('span');
-	          span.innerHTML = ['<img class="thumb" src="', e.target.result,
-	                            '" title="', escape(theFile.name),'"/><img src="img/LittleOrangeHands.png" class="overlay"/>'].join('');
-	          document.getElementById('list').replaceWith(span);
+	          var c=document.getElementById("myCanvas");
+				var ctx=c.getContext("2d");
+				var imageObj1 = new Image();
+				var imageObj2 = new Image();
+				imageObj1.src = e.target.result;
+				imageObj1.onload = function() {
+				   ctx.drawImage(imageObj1, 0, 0, 960, 1280);
+				   imageObj2.src = "img/LittleOrangeHands.png";
+				   imageObj2.onload = function() {
+				      ctx.drawImage(imageObj2, 0, 0, 960, 1280);
+				      var img = new Image();
+					  img.setAttribute('crossOrigin', 'anonymous');
+				      img = c.toDataURL("img/merged.png");
+				      span.innerHTML = ['<img src="' + img + '" width="960" height="1280"/>'].join('');
+				      document.getElementById('list').replaceWith(span);
+				   }
+				};         
 	        };
 	      })(f);
+	    
+
+	      // Closure to capture the file information.
+	      // reader.onload = (function(theFile) {
+	      //   return function(e) {
+	      //     // Render thumbnail.
+	      //     var span = document.createElement('span');
+	      //     span.innerHTML = ['<img class="thumb" src="', e.target.result,
+	      //                       '" title="', escape(theFile.name),'"/><img src="img/LittleOrangeHands.png" class="overlay"/>'].join('');
+	      //     document.getElementById('list').replaceWith(span);
+	      //   };
+	      // })(f);
 
 	      // Read in the image file as a data URL.
 	      reader.readAsDataURL(f);
