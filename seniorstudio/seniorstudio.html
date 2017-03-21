@@ -16,7 +16,6 @@
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
@@ -44,11 +43,9 @@
 
 	<!-- <input type="file" id="files" name="files[]" multiple /> -->
 
-	<div class="text-center"> 
-	<label class="btn  btn-default" style="font-family: 'Abel', sans-serif;">
+	<label class="btn btn-block btn-default" style="font-family: 'Abel', sans-serif; margin: 16px;">
            Take Picture <input type="file" id="files" accept="image/*" name="files[]" style="display: none;">
     </label>
-</div>
 
 	<div class="container"> 
 		<p><output id="list"></output></p>
@@ -56,10 +53,7 @@
 
 	<canvas id="myCanvas" width="960" height="1280"></canvas>
 
-	// <script type="text/javascript" src="js/exif.js"><script>
-
 	<script>
-
 	  function handleFileSelect(evt) {
 	    var files = evt.target.files; // FileList object
 
@@ -86,25 +80,6 @@
 				var imageObj2 = new Image();
 				imageObj1.src = e.target.result;
 				imageObj1.onload = function() {
-					// EXIF.getData(imageObj1, function() {
-	    //                 console.log('Exif=', EXIF.getTag(this, "Orientation"));
-	    //                 switch(parseInt(EXIF.getTag(this, "Orientation"))) {
-	    //                     case 2:
-	    //                         $img.addClass('flip'); break;
-	    //                     case 3:
-	    //                         $img.addClass('rotate-180'); break;
-	    //                     case 4:
-	    //                         $img.addClass('flip-and-rotate-180'); break;
-	    //                     case 5:
-	    //                         $img.addClass('flip-and-rotate-270'); break;
-	    //                     case 6:
-	    //                         $img.addClass('rotate-90'); break;
-	    //                     case 7:
-	    //                         $img.addClass('flip-and-rotate-90'); break;
-	    //                     case 8:
-	    //                         $img.addClass('rotate-270'); break;
-	    //                 }
-	    //             });
 				   ctx.drawImage(imageObj1, 0, 0, 960, 1280);
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
