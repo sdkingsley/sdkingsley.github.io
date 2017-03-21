@@ -55,6 +55,7 @@
 
 	<canvas id="myCanvas" width="960" height="1280"></canvas>
 
+	<script type="text/javascript" src="https://cdn.rawgit.com/jseidelin/exif-js/master/exif.js"></script>
 	<script>
 	  function handleFileSelect(evt) {
 	    var files = evt.target.files; // FileList object
@@ -82,6 +83,25 @@
 				var imageObj2 = new Image();
 				imageObj1.src = e.target.result;
 				imageObj1.onload = function() {
+					EXIF.getData(imageObj1, function() {
+			            console.log('Exif=', EXIF.getTag(this, "Orientation"));
+			            switch(parseInt(EXIF.getTag(this, "Orientation"))) {
+			                case 2:
+			                    $img.addClass('flip'); break;
+			                case 3:
+			                    $img.addClass('rotate-180'); break;
+			                case 4:
+			                    $img.addClass('flip-and-rotate-180'); break;
+			                case 5:
+			                    $img.addClass('flip-and-rotate-270'); break;
+			                case 6:
+			                    $img.addClass('rotate-90'); break;
+			                case 7:
+			                    $img.addClass('flip-and-rotate-90'); break;
+			                case 8:
+			                    $img.addClass('rotate-270'); break;
+			            }
+			        });
 				   ctx.drawImage(imageObj1, 0, 0, 960, 1280);
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
