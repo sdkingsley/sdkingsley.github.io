@@ -70,6 +70,30 @@
 
 	      var reader = new FileReader();
 
+	    function fixExifOrientation($img) {
+		    $img.onload = function() {
+		        EXIF.getData($img[0], function() {
+		            console.log('Exif=', EXIF.getTag(this, "Orientation"));
+		            switch(parseInt(EXIF.getTag(this, "Orientation"))) {
+		                case 2:
+		                    $img.addClass('flip'); break;
+		                case 3:
+		                    $img.addClass('rotate-180'); break;
+		                case 4:
+		                    $img.addClass('flip-and-rotate-180'); break;
+		                case 5:
+		                    $img.addClass('flip-and-rotate-270'); break;
+		                case 6:
+		                    $img.addClass('rotate-90'); break;
+		                case 7:
+		                    $img.addClass('flip-and-rotate-90'); break;
+		                case 8:
+		                    $img.addClass('rotate-270'); break;
+		            }
+		        });
+		    };
+		}
+
 	    //TODO: have it save photo
 	    reader.onload = (function(theFile) {
 	        return function(e) {
@@ -83,25 +107,7 @@
 				var imageObj2 = new Image();
 				imageObj1.src = e.target.result;
 				imageObj1.onload = function() {
-					EXIF.getData(imageObj1, function() {
-			            console.log('Exif=', EXIF.getTag(this, "Orientation"));
-			            switch(parseInt(EXIF.getTag(this, "Orientation"))) {
-			                case 2:
-			                    $img.addClass('flip'); break;
-			                case 3:
-			                    $img.addClass('rotate-180'); break;
-			                case 4:
-			                    $img.addClass('flip-and-rotate-180'); break;
-			                case 5:
-			                    $img.addClass('flip-and-rotate-270'); break;
-			                case 6:
-			                    $img.addClass('rotate-90'); break;
-			                case 7:
-			                    $img.addClass('flip-and-rotate-90'); break;
-			                case 8:
-			                    $img.addClass('rotate-270'); break;
-			            }
-			        });
+				   fixExifOrientation(imageObj1);
 				   ctx.drawImage(imageObj1, 0, 0, 960, 1280);
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
