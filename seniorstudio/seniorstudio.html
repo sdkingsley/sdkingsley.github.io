@@ -7,6 +7,7 @@
     <title>Studio Art Web App</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abel|Homemade+Apple" rel="stylesheet">
 </head>
 
@@ -77,22 +78,22 @@
 		        EXIF.getData($img[0], function() {
 		            console.log('Exif=', EXIF.getTag(this, "Orientation"));
 		            $img.addClass('rotate-90');
-		            // switch(parseInt(EXIF.getTag(this, "Orientation"))) {
-		            //     case 2:
-		            //         $img.addClass('flip'); break;
-		            //     case 3:
-		            //         $img.addClass('rotate-180'); break;
-		            //     case 4:
-		            //         $img.addClass('flip-and-rotate-180'); break;
-		            //     case 5:
-		            //         $img.addClass('flip-and-rotate-270'); break;
-		            //     case 6:
-		            //         $img.addClass('rotate-90'); break;
-		            //     case 7:
-		            //         $img.addClass('flip-and-rotate-90'); break;
-		            //     case 8:
-		            //         $img.addClass('rotate-270'); break;
-		            // }
+		            switch(parseInt(EXIF.getTag(this, "Orientation"))) {
+		                case 2:
+		                    $img.addClass('flip'); break;
+		                case 3:
+		                    $img.addClass('rotate-180'); break;
+		                case 4:
+		                    $img.addClass('flip-and-rotate-180'); break;
+		                case 5:
+		                    $img.addClass('flip-and-rotate-270'); break;
+		                case 6:
+		                    $img.addClass('rotate-90'); break;
+		                case 7:
+		                    $img.addClass('flip-and-rotate-90'); break;
+		                case 8:
+		                    $img.addClass('rotate-270'); break;
+		            }
 		        });
 		    };
 		}
@@ -106,14 +107,14 @@
 			  img.setAttribute('crossOrigin', 'anonymous');
 	          var c=document.getElementById("myCanvas");
 				var ctx=c.getContext("2d");
-				ctx.transform(0, 1, 1, 0, 0, 0);
+				// ctx.transform(0, 1, 1, 0, 0, 0);
 				var imageObj1 = new Image();
 				var imageObj2 = new Image();
 				imageObj1.src = e.target.result;
 				imageObj1.onload = function() {
-				   // fixExifOrientation(imageObj1);
+				   fixExifOrientation(imageObj1);
 				   ctx.drawImage(imageObj1, 0, 0, 960, 1280);
-				   ctx.transform(0, 1, 1, 0, 0, 0);
+				   // ctx.transform(0, 1, 1, 0, 0, 0);
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
 				      ctx.drawImage(imageObj2, 0, 0, 960, 1280);
