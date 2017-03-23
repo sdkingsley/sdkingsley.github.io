@@ -20,6 +20,7 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/jseidelin/exif-js/master/exif.js"></script>
 
 	<style>
 	  .thumb {
@@ -59,7 +60,7 @@
 
 	<!-- http://stackoverflow.com/questions/28251338/jquery-image-preview-exif-rotation-issue/28843763#28843763 -->
 
-	<script type="text/javascript" src="https://cdn.rawgit.com/jseidelin/exif-js/master/exif.js"></script>
+	
 	<script>
 	  function handleFileSelect(evt) {
 	    var files = evt.target.files; // FileList object
@@ -96,6 +97,7 @@
 				imageObj1.onload = function() {
 				   EXIF.getData(imageObj1, function() {
 			            console.log('Exif=', EXIF.getTag(this, "Orientation"));
+			            document.write('<p>"exif="'+ EXIF.getTag(this, "Orientation") + "</p>");
 			            switch(parseInt(EXIF.getTag(this, "Orientation"))) {
 			                case 2:
 			                    $(imageObj1).addClass('flip'); break;
