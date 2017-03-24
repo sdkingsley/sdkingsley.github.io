@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 3.21</h2>
+	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 3.22</h2>
 	<p class="text-center" style="font-family: 'Abel', sans-serif; color: #BBBBBB; padding; 32px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae pellentesque sapien. Morbi ullamcorper enim malesuada sapien cursus, quis tristique nunc volutpat. </p>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -106,10 +106,10 @@
 			                    cw = imageObj1.height;
           						ch = imageObj1.width;
           						cy = imageObj1.height * (-1);
-          						c.setAttribute('width', cw);
-								c.setAttribute('height', ch);
+          						c.setAttribute(960, cw);
+								c.setAttribute(1280, ch);
 								ctx.rotate(90 * Math.PI / 180);
-								ctx.drawImage(imageObj1, cx, cy, 960,1280);
+								ctx.drawImage(imageObj1, cx, cy);
           						break;
 			                case 7:
 			                    $(imageObj1).addClass('flip-and-rotate-90'); break;
@@ -118,8 +118,10 @@
 			                    cw = imageObj1.height;
           						ch = imageObj1.width;
           						cx = imageObj1.width * (-1);
+          						c.setAttribute(960, cw);
+								c.setAttribute(1280, ch);
           						ctx.rotate(270 * Math.PI / 180);
-								ctx.drawImage(imageObj1, cx, cy, 960,1280);
+								ctx.drawImage(imageObj1, cx, cy);
           						break;
 			                default:
 			                	ctx.drawImage(imageObj1, 0, 0, 960, 1280);
