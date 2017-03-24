@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 3.22</h2>
+	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 3.23</h2>
 	<p class="text-center" style="font-family: 'Abel', sans-serif; color: #BBBBBB; padding; 32px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae pellentesque sapien. Morbi ullamcorper enim malesuada sapien cursus, quis tristique nunc volutpat. </p>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -84,12 +84,13 @@
 	          var cw = img.width, ch = img.height, cx = 0, cy = 0;
 			  img.setAttribute('crossOrigin', 'anonymous');
 	          var c=document.getElementById("myCanvas");
-				var ctx=c.getContext("2d");
-				// ctx.transform(0, 1, 1, 0, 0, 0);
-				var imageObj1 = new Image();
-				var imageObj2 = new Image();
-				imageObj1.src = e.target.result;
-				imageObj1.onload = function() {
+	          c.setAttribute('width', 960);
+			  c.setAttribute('height', 1280);
+			  var ctx=c.getContext("2d");
+			  var imageObj1 = new Image();
+			  var imageObj2 = new Image();
+			  imageObj1.src = e.target.result;
+		 	  imageObj1.onload = function() {
 				   EXIF.getData(imageObj1, function() {
 			            console.log('Exif=', EXIF.getTag(this, "Orientation"));
 			            switch(parseInt(EXIF.getTag(this, "Orientation"))) {
@@ -106,10 +107,7 @@
 			                    cw = imageObj1.height;
           						ch = imageObj1.width;
           						cy = imageObj1.height * (-1);
-          						c.setAttribute(960, cw);
-								c.setAttribute(1280, ch);
 								ctx.rotate(90 * Math.PI / 180);
-								ctx.drawImage(imageObj1, cx, cy);
           						break;
 			                case 7:
 			                    $(imageObj1).addClass('flip-and-rotate-90'); break;
@@ -118,17 +116,12 @@
 			                    cw = imageObj1.height;
           						ch = imageObj1.width;
           						cx = imageObj1.width * (-1);
-          						c.setAttribute(960, cw);
-								c.setAttribute(1280, ch);
           						ctx.rotate(270 * Math.PI / 180);
-								ctx.drawImage(imageObj1, cx, cy);
           						break;
-			                default:
-			                	ctx.drawImage(imageObj1, 0, 0, 960, 1280);
-								break;
 			            }
 			       });
 				   // ctx.drawImage(imageObj1, 0, 0, 960, 1280);
+				   ctx.drawImage(imageObj1, cx, cy);
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
 				      ctx.drawImage(imageObj2, 0, 0, 960, 1280);
