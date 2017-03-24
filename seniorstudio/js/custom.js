@@ -68,10 +68,10 @@ function handleFileSelect(evt) {
           						break;
 			            }
 			       });
-				   ctx.drawImage(imageObj1, cx, cy);
+				   ctx.drawImage(imageObj1, cx, cy, 512, 512 * imageObj1.height / imageObj1.width);
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
-				      ctx.drawImage(imageObj2, 0, 0, 512, 512);
+				      ctx.drawImage(imageObj2, 0, 0, 512, 512 * imageObj1.height / imageObj1.width);
 				      img = c.toDataURL("img/merged.png");
 				      document.write('<img src="' + img + '" width='+$(window).width()+'/>');
 				   }
