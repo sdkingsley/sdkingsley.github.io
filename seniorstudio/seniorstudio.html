@@ -7,42 +7,20 @@
     <title>Studio Art Web App</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abel|Homemade+Apple" rel="stylesheet">
 </head>
 
 <body>
-	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 3.23</h2>
-	<p class="text-center" style="font-family: 'Abel', sans-serif; color: #BBBBBB; padding; 32px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae pellentesque sapien. Morbi ullamcorper enim malesuada sapien cursus, quis tristique nunc volutpat. </p>
-
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/jseidelin/exif-js/master/exif.js"></script>
+    <script src="js/custom.js"></script>
 
-	<style>
-	  .thumb {
-	    width: 100%;
-	    border: none;
-	    margin: 10px 5px 0 0;
-	  }
-
-	  .overlay {
-	  	width: 100%;
-	  	border: none;
-	    margin: 10px 5px 0 0;
-    	position: absolute;   
-    	left:0;
-    	top: 0;
-    	z-index: 999;
-	  }
-
-	  .container {
- 		position: relative;   
-	  }
-	</style>
+	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 3.3</h2>
+	<p class="text-center" style="font-family: 'Abel', sans-serif; color: #BBBBBB; padding; 32px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae pellentesque sapien. Morbi ullamcorper enim malesuada sapien cursus, quis tristique nunc volutpat. </p>
 
 	<!-- <input type="file" id="files" name="files[]" multiple /> -->
 
@@ -52,109 +30,11 @@
     </label>
     </div>
 
-	<div class="container"> 
-		<p><output id="list"></output></p>
-	</div>
-
-	<canvas id="myCanvas" width="960" height="1280"></canvas>
-
-	<!-- http://stackoverflow.com/questions/28251338/jquery-image-preview-exif-rotation-issue/28843763#28843763 -->
-
-	
-	<script>
-	  function handleFileSelect(evt) {
-	    var files = evt.target.files; // FileList object
-
-	    // Loop through the FileList and render image files as thumbnails.
-	    for (var i = 0, f; f = files[i]; i++) {
-
-	      // Only process image files.
-	      if (!f.type.match('image.*')) {
-	        continue;
-	      }
-
-	      var reader = new FileReader();
-
-	    //TODO: have it save photo
-	    reader.onload = (function(theFile) {
-	        return function(e) {
-	          // Render thumbnail.
-	          var span = document.createElement('span');
-	          var img = new Image();
-	          var cw = img.width, ch = img.height, cx = 0, cy = 0;
-			  img.setAttribute('crossOrigin', 'anonymous');
-	          var c=document.getElementById("myCanvas");
-	          c.setAttribute('width', 960);
-			  c.setAttribute('height', 1280);
-			  var ctx=c.getContext("2d");
-			  var imageObj1 = new Image();
-			  var imageObj2 = new Image();
-			  imageObj1.src = e.target.result;
-		 	  imageObj1.onload = function() {
-				   EXIF.getData(imageObj1, function() {
-			            console.log('Exif=', EXIF.getTag(this, "Orientation"));
-			            switch(parseInt(EXIF.getTag(this, "Orientation"))) {
-			                case 2:
-			                    $(imageObj1).addClass('flip'); break;
-			                case 3:
-			                    $(imageObj1).addClass('rotate-180'); break;
-			                case 4:
-			                    $(imageObj1).addClass('flip-and-rotate-180'); break;
-			                case 5:
-			                    $(imageObj1).addClass('flip-and-rotate-270'); break;
-			                case 6:
-			                    // $(imageObj1).addClass('rotate-90'); break;
-			                    cw = imageObj1.height;
-          						ch = imageObj1.width;
-          						cy = imageObj1.height * (-1);
-								ctx.rotate(90 * Math.PI / 180);
-          						break;
-			                case 7:
-			                    $(imageObj1).addClass('flip-and-rotate-90'); break;
-			                case 8:
-			                    // $(imageObj1).addClass('rotate-270'); break;
-			                    cw = imageObj1.height;
-          						ch = imageObj1.width;
-          						cx = imageObj1.width * (-1);
-          						ctx.rotate(270 * Math.PI / 180);
-          						break;
-			            }
-			       });
-				   // ctx.drawImage(imageObj1, 0, 0, 960, 1280);
-				   ctx.drawImage(imageObj1, cx, cy);
-				   imageObj2.src = "img/LittleOrangeHands.png";
-				   imageObj2.onload = function() {
-				      ctx.drawImage(imageObj2, 0, 0, 960, 1280);
-				      img = c.toDataURL("img/merged.png");
-				      document.write('<img src="' + img + '" width="960" height="1280"/>');
-				      // span.innerHTML = ['<img class="thumb" src="' + img + '" width="960" height="1280"/>'].join('');
-				      // document.getElementById('list').replaceWith(span);
-				   }
-				};         
-	        	span.innerHTML = ['<img class="thumb" src="', img, '" title="', escape(theFile.name),'"/>'].join('');
-	        };
-	      })(f);
-	    
-
-	      // Closure to capture the file information.
-	      // reader.onload = (function(theFile) {
-	      //   return function(e) {
-	      //     // Render thumbnail.
-	      //     var span = document.createElement('span');
-	      //     span.innerHTML = ['<img class="thumb" src="', e.target.result,
-	      //                       '" title="', escape(theFile.name),'"/><img src="img/LittleOrangeHands.png" class="overlay"/>'].join('');
-	      //     document.getElementById('list').replaceWith(span);
-	      //   };
-	      // })(f);
-
-	      // Read in the image file as a data URL.
-	      reader.readAsDataURL(f);
-	    }
-	  }
-
-	  document.getElementById('files').addEventListener('change', handleFileSelect, false);
-
+    <script type="text/javascript">
+	document.getElementById('files').addEventListener('change', handleFileSelect, false);
 	</script>
+
+	<canvas id="myCanvas" width="512" height="512"></canvas>
 
 
 </body>
