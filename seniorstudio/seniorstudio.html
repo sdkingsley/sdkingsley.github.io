@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 3.2</h2>
+	<h2 class="text-center" style="font-family: 'Homemade Apple', cursive; color: #000000;">Test 3.21</h2>
 	<p class="text-center" style="font-family: 'Abel', sans-serif; color: #BBBBBB; padding; 32px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae pellentesque sapien. Morbi ullamcorper enim malesuada sapien cursus, quis tristique nunc volutpat. </p>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -106,8 +106,8 @@
 			                    cw = imageObj1.height;
           						ch = imageObj1.width;
           						cy = imageObj1.height * (-1);
-          						canvas.setAttribute('width', cw);
-								canvas.setAttribute('height', ch);
+          						c.setAttribute('width', cw);
+								c.setAttribute('height', ch);
 								ctx.rotate(90 * Math.PI / 180);
 								ctx.drawImage(imageObj1, cx, cy, 960,1280);
           						break;
@@ -123,6 +123,7 @@
           						break;
 			                default:
 			                	ctx.drawImage(imageObj1, 0, 0, 960, 1280);
+								break;
 			            }
 			       });
 				   // ctx.drawImage(imageObj1, 0, 0, 960, 1280);
