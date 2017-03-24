@@ -31,7 +31,7 @@ function handleFileSelect(evt) {
 			            console.log('Exif=', EXIF.getTag(this, "Orientation"));
 			            switch(parseInt(EXIF.getTag(this, "Orientation"))) {
 			                case 2:
-			                    $(imageObj1).addClass('flip'); break;
+			                    break;
 			                case 3:
 			                    cx = imageObj1.width * (-1);
           						cy = imageObj1.height * (-1);
