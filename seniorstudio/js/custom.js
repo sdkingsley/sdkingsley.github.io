@@ -26,6 +26,7 @@ function handleFileSelect(evt) {
 			  var imageObj1 = new Image();
 			  var imageObj2 = new Image();
 			  imageObj1.src = e.target.result;
+			  imageObj2.src = "img/LittleOrangeHands.png";
 		 	  imageObj1.onload = function() {
 				   EXIF.getData(imageObj1, function() {
 			            console.log('Exif=', EXIF.getTag(this, "Orientation"));
@@ -33,19 +34,22 @@ function handleFileSelect(evt) {
 			                case 2:
 			                    break;
 			                case 3:
-			                    cx = imageObj1.width * (-1);
-          						cy = imageObj1.height * (-1);
+			                    cx = 512 * (-1);
+          						cy = 512 * (-1);
+          						imageObj2.src = "img/LittleOrangeHands180.png";
 								ctx.rotate(180 * Math.PI / 180);
           						break;
 			                case 4:
-			                    cx = imageObj1.width * (-1);
-          						cy = imageObj1.height * (-1);
+			                    cx = 512 * (-1);
+          						cy = 512 * (-1);
+          						imageObj2.src = "img/LittleOrangeHands180.png";
 								ctx.rotate(180 * Math.PI / 180);
           						break;
 			                case 5:
-			                    cw = imageObj1.height;
-          						ch = imageObj1.width;
-          						cx = imageObj1.width * (-1);
+			                    cw = 512;
+          						ch = 512;
+          						cx = 512 * (-1);
+          						imageObj2.src = "img/LittleOrangeHands270.png";
           						ctx.rotate(270 * Math.PI / 180);
           						break;
 			                case 6:
@@ -55,19 +59,22 @@ function handleFileSelect(evt) {
           						cw = 512;
           						ch = 512;
           						cy = 512 * (-1);
+          						imageObj2.src = "img/LittleOrangeHands90.png";
 								// ctx.rotate(90 * Math.PI / 180);
 								degree = 90;
           						break;
 			                case 7:
-			                    cw = imageObj1.height;
-          						ch = imageObj1.width;
-          						cy = imageObj1.height * (-1);
+			                    cw = 512;
+          						ch = 512;
+          						cy = 512 * (-1);
+          						imageObj2.src = "img/LittleOrangeHands90.png";
 								ctx.rotate(90 * Math.PI / 180);
           						break;
 			                case 8:
-			                    cw = imageObj1.height;
-          						ch = imageObj1.width;
-          						cx = imageObj1.width * (-1);
+			                    cw = 512;
+          						ch = 512;
+          						cx = 512 * (-1);
+          						imageObj2.src = "img/LittleOrangeHands270.png";
           						ctx.rotate(270 * Math.PI / 180);
           						break;
 			            }
@@ -77,7 +84,6 @@ function handleFileSelect(evt) {
 			       ctx.rotate(degree*Math.PI/180);
 				   // ctx.drawImage(imageObj1, cx, cy, 512, 512 * imageObj1.height / imageObj1.width);
 				   ctx.drawImage(imageObj1, cx, cy);
-				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
 				      // ctx.drawImage(imageObj2, 0, 0, 512, 512 * imageObj1.height / imageObj1.width);
 				      ctx.drawImage(imageObj2, cx, cy);
