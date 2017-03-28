@@ -17,11 +17,11 @@ function handleFileSelect(evt) {
 	          // Render thumbnail.
 	          var span = document.createElement('span');
 	          var img = new Image();
-	          var cw = img.width, ch = img.height, cx = 0, cy = 0;
+	          var cw = img.width, ch = img.height, cx = 0, cy = 0, degree = 0;
 			  img.setAttribute('crossOrigin', 'anonymous');
 	          var c=document.getElementById("myCanvas");
-	          c.setAttribute('width', 512);
-			  c.setAttribute('height', 512);
+	    //       c.setAttribute('width', 512);
+			  // c.setAttribute('height', 512);
 			  var ctx=c.getContext("2d");
 			  var imageObj1 = new Image();
 			  var imageObj2 = new Image();
@@ -49,10 +49,14 @@ function handleFileSelect(evt) {
           						ctx.rotate(270 * Math.PI / 180);
           						break;
 			                case 6:
-			                    cw = imageObj1.height;
-          						ch = imageObj1.width;
-          						cy = imageObj1.height * (-1);
-								ctx.rotate(90 * Math.PI / 180);
+			             //        cw = imageObj1.height;
+          						// ch = imageObj1.width;
+          						// cy = imageObj1.height * (-1);
+          						cw = 512;
+          						ch = 512;
+          						cy = 512 * (-1);
+								// ctx.rotate(90 * Math.PI / 180);
+								degree = 90;
           						break;
 			                case 7:
 			                    cw = imageObj1.height;
@@ -68,10 +72,15 @@ function handleFileSelect(evt) {
           						break;
 			            }
 			       });
-				   ctx.drawImage(imageObj1, cx, cy, 512, 512 * imageObj1.height / imageObj1.width);
+				   c.setAttribute('width', cw);
+			       c.setAttribute('height', ch);
+			       ctx.rotate(degree*Math.PI/180);
+				   // ctx.drawImage(imageObj1, cx, cy, 512, 512 * imageObj1.height / imageObj1.width);
+				   ctx.drawImage(imageObj1, cx, cy);
 				   imageObj2.src = "img/LittleOrangeHands.png";
 				   imageObj2.onload = function() {
-				      ctx.drawImage(imageObj2, 0, 0, 512, 512 * imageObj1.height / imageObj1.width);
+				      // ctx.drawImage(imageObj2, 0, 0, 512, 512 * imageObj1.height / imageObj1.width);
+				      ctx.drawImage(imageObj2, cx, cy);
 				      img = c.toDataURL("img/merged.png");
 				      // document.getElementById("myCanvas").innerHTML='<img src="' + img + '" width=512'+'/>';
 				      // document.write('<img src="' + img + '" width='+$(window).width()+'/>');
