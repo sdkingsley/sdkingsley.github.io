@@ -73,8 +73,9 @@ function handleFileSelect(evt) {
 				   imageObj2.onload = function() {
 				      ctx.drawImage(imageObj2, 0, 0, 512, 512 * imageObj1.height / imageObj1.width);
 				      img = c.toDataURL("img/merged.png");
-				      document.getElementById("myCanvas").innerHTML='<img src="' + img + '" width='+$(window).width()+'/>';
+				      // document.getElementById("myCanvas").innerHTML='<img src="' + img + '" width=512'+'/>';
 				      // document.write('<img src="' + img + '" width='+$(window).width()+'/>');
+				      $('#myCanvas').append('<img src="' + img + '" width='+$(window).width()+'/>');
 				   }
 				};
 	        };
