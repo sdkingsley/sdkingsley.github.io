@@ -85,8 +85,12 @@ function handleFileSelect(evt) {
 				   ctx.drawImage(imageObj1, cx, cy, cw * (imageObj1.width/imageObj1.height), ch);
 				   imageObj2.onload = function() {
 				      ctx.drawImage(imageObj2, cx, cy);
-				      img = c.toDataURL("img/merged.png");
-				      $('#myCanvas').append('<img src="' + img + '" width='+$(window).width()+'/>');
+				      var img = new Image();
+					  img.setAttribute('crossOrigin', 'anonymous');
+					  img.src = c.toDataURL("img/merged.png");
+				      var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+				      console.log('window width=', width);
+				      $('#myCanvas').append('<img src="' + img + 'style="width: '+ width +'px;"/>');
 				   }
 				};
 	        };
