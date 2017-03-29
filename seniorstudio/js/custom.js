@@ -24,6 +24,7 @@ function handleFileSelect(evt) {
 			  // c.setAttribute('height', 512);
 			  var ctx=c.getContext("2d");
 			  var imageObj1 = new Image();
+			  imageObj1.setAttribute('crossOrigin', 'anonymous');
 			  var imageObj2 = new Image();
 			  imageObj1.src = e.target.result;
 			  imageObj2.src = "img/LittleOrangeHands.png";
@@ -85,12 +86,6 @@ function handleFileSelect(evt) {
 				   ctx.drawImage(imageObj1, cx, cy, cw * (imageObj1.width/imageObj1.height), ch);
 				   imageObj2.onload = function() {
 				      ctx.drawImage(imageObj2, cx, cy);
-				      var img = new Image();
-					  img.setAttribute('crossOrigin', 'anonymous');
-				      img = c.toDataURL();
-				      $('#myCanvas').append('<img id="canvasImg" alt="Right click to save me!">');
-				      document.getElementById('canvasImg').src = img;
-				      // $('#myCanvas').append('<img src="' + img + 'style="width: '+ width +'px;"/>');
 				   }
 				};
 	        };
