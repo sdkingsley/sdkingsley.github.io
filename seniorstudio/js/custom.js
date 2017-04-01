@@ -37,30 +37,26 @@ function handleFileSelect(evt) {
 			                    cx = 512 * (-1);
           						cy = 512 * (-1);
           						imageObj2.src = "img/LittleOrangeHands180.png";
-								ctx.rotate(180 * Math.PI / 180);
+								degree = 180;
           						break;
 			                case 4:
 			                    cx = 512 * (-1);
           						cy = 512 * (-1);
           						imageObj2.src = "img/LittleOrangeHands180.png";
-								ctx.rotate(180 * Math.PI / 180);
+								degree = 180;
           						break;
 			                case 5:
 			                    cw = 512;
           						ch = 512;
           						cx = 512 * (-1);
           						imageObj2.src = "img/LittleOrangeHands270.png";
-          						ctx.rotate(270 * Math.PI / 180);
+          						degree = 270;
           						break;
 			                case 6:
-			             //        cw = imageObj1.height;
-          						// ch = imageObj1.width;
-          						// cy = imageObj1.height * (-1);
           						cw = 512;
           						ch = 512;
           						cy = 512 * (-1);
           						imageObj2.src = "img/LittleOrangeHands90.png";
-								// ctx.rotate(90 * Math.PI / 180);
 								degree = 90;
           						break;
 			                case 7:
@@ -68,14 +64,14 @@ function handleFileSelect(evt) {
           						ch = 512;
           						cy = 512 * (-1);
           						imageObj2.src = "img/LittleOrangeHands90.png";
-								ctx.rotate(90 * Math.PI / 180);
+								degree = 90;
           						break;
 			                case 8:
 			                    cw = 512;
           						ch = 512;
           						cx = 512 * (-1);
           						imageObj2.src = "img/LittleOrangeHands270.png";
-          						ctx.rotate(270 * Math.PI / 180);
+          						degree = 180;
           						break;
 			            }
 			       });
