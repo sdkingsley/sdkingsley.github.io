@@ -87,10 +87,10 @@ function handleFileSelect(evt) {
 				      ctx.drawImage(imageObj2, cx, cy);
 				      var img = new Image();
 					  img.setAttribute('crossOrigin', 'anonymous');
-				      img = c.toDataURL();
-				      $('#myCanvas').append('<img id="canvasImg" alt="Right click to save me!">');
-				      document.getElementById('canvasImg').src = img;
-				      // $('#myCanvas').append('<img src="' + img + 'style="width: '+ width +'px;"/>');
+					  img.src = c.toDataURL("img/merged.png");
+				      var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+				      console.log('window width=', width);
+				      $('#myCanvas').append('<img src="' + img + 'style="width: '+ width +'px;"/>');
 				   }
 				};
 	        };
