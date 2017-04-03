@@ -83,7 +83,7 @@ function handleFileSelect(evt) {
 			       ctx.rotate(degree*Math.PI/180);
 				   ctx.drawImage(imageObj1, cx, cy, cw * (imageObj1.width/imageObj1.height), ch);
 				   imageObj2.onload = function() {
-				      ctx.drawImage(imageObj2, cx, cy, cw * (imageObj1.width/imageObj1.height), ch);
+				      ctx.drawImage(imageObj2, cx, cy, cw, ch);
   					  // ctx.canvas.width  = window.innerWidth;
   					  // ctx.canvas.height = window.innerHeight;
 				      img = c.toDataURL("img/merged.png");
