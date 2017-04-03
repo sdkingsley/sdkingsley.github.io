@@ -1,3 +1,8 @@
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
+}
+
 function handleFileSelect(evt) {
 	    var files = evt.target.files; // FileList object
 
@@ -27,6 +32,7 @@ function handleFileSelect(evt) {
 			  var ctx=c.getContext("2d");
 			  var imageObj1 = new Image();
 			  var imageObj2 = new Image();
+			  imageObj2.setAttribute('crossOrigin', 'anonymous');
 			  imageObj1.src = e.target.result;
 			  imageObj2.src = "img/fists.png";
 		 	  imageObj1.onload = function() {
@@ -94,11 +100,11 @@ function handleFileSelect(evt) {
 			       }else{
 			       	 ctx.drawImage(imageObj1, cx, cy, cw, ch * (imageObj1.height/imageObj1.width));
 			       }
-			       
+
 				   imageObj2.onload = function() {
-				      ctx.drawImage(imageObj2, cx, cy, cw, ch);
-				      img = c.toDataURL("img/merged.png");
+				      ctx.drawImage(imageObj2, cx, cy, cw, ch);	
 				   }
+
 				};
 	        };
 	      })(f);
