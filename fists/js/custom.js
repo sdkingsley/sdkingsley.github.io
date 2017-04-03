@@ -16,8 +16,13 @@ function handleFileSelect(evt) {
 	        return function(e) {
 	          var span = document.createElement('span');
 	          var img = new Image();
-	          var cw = window.innerWidth, ch = window.innerWidth, cx = 0, cy = 0, degree = 0;
-			  img.setAttribute('crossOrigin', 'anonymous');
+	          img.setAttribute('crossOrigin', 'anonymous');
+	          if(window.innerWidth <= 512){
+	          	var imgwidth = window.innerWidth;
+	          } else{
+	          	var imgwidth = 512;
+	          }
+	          var cw = imgwidth, ch = imgwidth, cx = 0, cy = 0, degree = 0;
 	          var c=document.getElementById("myCanvas");
 			  var ctx=c.getContext("2d");
 			  var imageObj1 = new Image();
@@ -31,42 +36,42 @@ function handleFileSelect(evt) {
 			                case 2:
 			                    break;
 			                case 3:
-			                    cx = window.innerWidth * (-1);
-          						cy = window.innerWidth * (-1);
+			                    cx = imgwidth * (-1);
+          						cy = imgwidth * (-1);
           						imageObj2.src = "img/fists180.png";
 								degree = 180;
           						break;
 			                case 4:
-			                    cx = window.innerWidth * (-1);
-          						cy = window.innerWidth * (-1);
+			                    cx = imgwidth * (-1);
+          						cy = imgwidth * (-1);
           						imageObj2.src = "img/fists180.png";
 								degree = 180;
           						break;
 			                case 5:
-			                    cw = window.innerWidth;
-          						ch = window.innerWidth;
-          						cx = window.innerWidth * (-1);
+			                    cw = imgwidth;
+          						ch = imgwidth;
+          						cx = imgwidth * (-1);
           						imageObj2.src = "img/fists270.png";
           						degree = 270;
           						break;
 			                case 6:
-          						cw = window.innerWidth;
-          						ch = window.innerWidth;
-          						cy = window.innerWidth * (-1);
+          						cw = imgwidth;
+          						ch = imgwidth;
+          						cy = imgwidth * (-1);
           						imageObj2.src = "img/fists90.png";
 								degree = 90;
           						break;
 			                case 7:
-			                    cw = window.innerWidth;
-          						ch = window.innerWidth;
-          						cy = window.innerWidth * (-1);
+			                    cw = imgwidth;
+          						ch = imgwidth;
+          						cy = imgwidth * (-1);
           						imageObj2.src = "img/fists90.png";
 								degree = 90;
           						break;
 			                case 8:
-			                    cw = window.innerWidth;
-          						ch = window.innerWidth;
-          						cx = window.innerWidth * (-1);
+			                    cw = imgwidth;
+          						ch = imgwidth;
+          						cx = imgwidth * (-1);
           						imageObj2.src = "img/fists270.png";
           						degree = 180;
           						break;
@@ -84,10 +89,7 @@ function handleFileSelect(evt) {
 				   ctx.drawImage(imageObj1, cx, cy, cw * (imageObj1.width/imageObj1.height), ch);
 				   imageObj2.onload = function() {
 				      ctx.drawImage(imageObj2, cx, cy, cw, ch);
-  					  // ctx.canvas.width  = window.innerWidth;
-  					  // ctx.canvas.height = window.innerHeight;
 				      img = c.toDataURL("img/merged.png");
-				      $('#myCanvas').append('<img src="' + img + '" style="width:100%; height: 100%;"/>');
 				   }
 				};
 	        };
