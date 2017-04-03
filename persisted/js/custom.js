@@ -34,7 +34,7 @@ function handleFileSelect(evt) {
 			  var imageObj2 = new Image();
 			  imageObj2.setAttribute('crossOrigin', 'anonymous');
 			  imageObj1.src = e.target.result;
-			  imageObj2.src = "img/grow.png";
+			  imageObj2.src = "img/persisted.png";
 		 	  imageObj1.onload = function() {
 				   EXIF.getData(imageObj1, function() {
 			            console.log('Exif=', EXIF.getTag(this, "Orientation"));
@@ -44,41 +44,41 @@ function handleFileSelect(evt) {
 			                case 3:
 			                    cx = imgwidth * (-1);
           						cy = imgwidth * (-1);
-          						imageObj2.src = "img/grow180.png";
+          						imageObj2.src = "img/persisted180.png";
 								degree = 180;
           						break;
 			                case 4:
 			                    cx = imgwidth * (-1);
           						cy = imgwidth * (-1);
-          						imageObj2.src = "img/grow180.png";
+          						imageObj2.src = "img/persisted180.png";
 								degree = 180;
           						break;
 			                case 5:
 			                    cw = imgwidth;
           						ch = imgwidth;
           						cx = imgwidth * (-1);
-          						imageObj2.src = "img/grow270.png";
+          						imageObj2.src = "img/persisted270.png";
           						degree = 270;
           						break;
 			                case 6:
           						cw = imgwidth;
           						ch = imgwidth;
           						cy = imgwidth * (-1);
-          						imageObj2.src = "img/grow90.png";
+          						imageObj2.src = "img/persisted90.png";
 								degree = 90;
           						break;
 			                case 7:
 			                    cw = imgwidth;
           						ch = imgwidth;
           						cy = imgwidth * (-1);
-          						imageObj2.src = "img/grow90.png";
+          						imageObj2.src = "img/persisted90.png";
 								degree = 90;
           						break;
 			                case 8:
 			                    cw = imgwidth;
           						ch = imgwidth;
           						cx = imgwidth * (-1);
-          						imageObj2.src = "img/grow270.png";
+          						imageObj2.src = "img/persisted270.png";
           						degree = 180;
           						break;
 			            }
