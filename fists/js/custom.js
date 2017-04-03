@@ -80,13 +80,21 @@ function handleFileSelect(evt) {
 			            console.log('cy=', cy);
 			            console.log('cw=', cw);
 			            console.log('ch=', ch);
+			            console.log('imageObj1.width=', imageObj1.width);
+			            console.log('imageObj1.height=', imageObj1.height);
 			            console.log('degree=', degree);
 			            console.log('imageObj2.src=', imageObj2.src);
 			       });
 				   c.setAttribute('width', cw);
 			       c.setAttribute('height', ch);
 			       ctx.rotate(degree*Math.PI/180);
-				   ctx.drawImage(imageObj1, cx, cy, cw * (imageObj1.width/imageObj1.height), ch);
+
+			       if(imageObj1.width >= imageObj1.height){
+			       	 ctx.drawImage(imageObj1, cx, cy, cw * (imageObj1.width/imageObj1.height), ch);
+			       }else{
+			       	 ctx.drawImage(imageObj1, cx, cy, cw, ch * (imageObj1.height/imageObj1.width));
+			       }
+			       
 				   imageObj2.onload = function() {
 				      ctx.drawImage(imageObj2, cx, cy, cw, ch);
 				      img = c.toDataURL("img/merged.png");
