@@ -102,16 +102,7 @@ function handleFileSelect(evt) {
 			       }
 
 				   imageObj2.onload = function() {
-				      ctx.drawImage(imageObj2, cx, cy, cw, ch);
-				      $(".description").append("<div class=\"text-center\">"+
-							"<a id=\"download\" hidden>Download as image</a>"+
-							"<script type=\"text/javascript\">"+
-								"document.getElementById('download').addEventListener('click', function() {"+
-						    	"downloadCanvas(this, 'myCanvas', 'fists.png');"+
-								"}, false);"+
-							"</script>"+
-						"</div>");
-				      document.getElementById("buttons").innerHTML = "<a id='download' hidden>Download as image</a>";
+				      ctx.drawImage(imageObj2, cx, cy, cw, ch);	
 				   }
 
 				};
