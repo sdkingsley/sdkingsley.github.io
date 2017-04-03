@@ -14,14 +14,11 @@ function handleFileSelect(evt) {
 	    //TODO: have it save photo
 	    reader.onload = (function(theFile) {
 	        return function(e) {
-	          // Render thumbnail.
 	          var span = document.createElement('span');
 	          var img = new Image();
-	          var cw = img.width, ch = img.height, cx = 0, cy = 0, degree = 0;
+	          var cw = 512, ch = 512, cx = 0, cy = 0, degree = 0;
 			  img.setAttribute('crossOrigin', 'anonymous');
 	          var c=document.getElementById("myCanvas");
-	    //       c.setAttribute('width', 512);
-			  // c.setAttribute('height', 512);
 			  var ctx=c.getContext("2d");
 			  var imageObj1 = new Image();
 			  var imageObj2 = new Image();
@@ -74,6 +71,12 @@ function handleFileSelect(evt) {
           						degree = 180;
           						break;
 			            }
+			            console.log('cx=', cx);
+			            console.log('cy=', cy);
+			            console.log('cw=', cw);
+			            console.log('ch=', ch);
+			            console.log('degree=', degree);
+			            console.log('imageObj2.src=', imageObj2.src);
 			       });
 				   c.setAttribute('width', cw);
 			       c.setAttribute('height', ch);
